@@ -18,4 +18,26 @@ def caeser_cipher(phrase, shift)
   p char_array.join
 end
 
-caeser_cipher("Hello", 5)
+
+def collect_phrase
+  regex = /^[A-Za-z]+$/
+  puts "Please input a string value for the phrase"
+  phrase = gets.chomp
+  if regex.match?(phrase)
+    return phrase
+  else
+    collect_phrase
+  end
+end
+
+def collect_shift
+  puts "Please input an integer value for the shift value"
+  shift = gets.chomp.to_i
+  if shift.class == Integer
+    return shift
+  else
+    collect_shift
+  end
+end
+
+caeser_cipher(collect_phrase, collect_shift)
