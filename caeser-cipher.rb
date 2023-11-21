@@ -21,23 +21,21 @@ end
 
 def collect_phrase
   regex = /^[A-Za-z]+$/
+  phrase = ''
+  while regex.match?(phrase) != true
   puts "Please input a string value for the phrase"
   phrase = gets.chomp
-  if regex.match?(phrase)
-    return phrase
-  else
-    collect_phrase
   end
+  phrase
 end
 
 def collect_shift
+  shift = 0
+  while shift.class != Integer || shift == 0
   puts "Please input an integer value for the shift value"
   shift = gets.chomp.to_i
-  if shift.class == Integer
-    return shift
-  else
-    collect_shift
   end
+  shift
 end
 
 caeser_cipher(collect_phrase, collect_shift)
